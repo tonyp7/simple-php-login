@@ -3,12 +3,9 @@ session_start();
 require_once('config.inc.php');
 
 if($_SESSION['active'] == false){
-	include('login.html');
-    exit;
+	header('location:index.php');
+	exit;
 }
-else{
-	include('protected.php');
-}
-
 
 ?>
+<h1>Welcome to protected space</h1>
