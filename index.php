@@ -30,8 +30,13 @@ else if(isset($_SESSION['github_state']) && isset($_GET['code']) && isset($_GET[
     if($response && isset($response['access_token'])){
 
         $token = $response['access_token'];
+
+        var_dump($response);
+
         if($token){
-            var_dump( get_user_info($token ));
+            $user =  get_user_info($token );
+
+            var_dump($user);
         }
     }
 
