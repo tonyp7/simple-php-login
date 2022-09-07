@@ -20,7 +20,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
 
 if($_SESSION['active'] == false){
-	include('login.html');
+	include('login.php');
     exit;
 }
 else{

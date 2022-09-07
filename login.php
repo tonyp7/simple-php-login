@@ -1,4 +1,6 @@
-<!doctype html>
+<?php
+session_start();
+require_once('config.inc.php');?><!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -106,11 +108,11 @@ function docReady () {
 		<div class="col-auto"><em>or</em></div>
 		<div class="col"><hr></div>
 	</div>
-
+<?php if ($config['github']['active'] == true) { ?>
 	<a id="github-button" class="w-100 btn btn-lg btn-block btn-social btn-github mt-1">
 		<i class="bi bi-github"></i> Sign in with GitHub
 	</a>
-
+<?php } >
 	<a id="google-button" class="w-100 btn btn-lg btn-block btn-social btn-google mt-1">
 		<img class="bi" src="assets/g-normal.svg" alt=""> Sign in with Google
 	</a>
