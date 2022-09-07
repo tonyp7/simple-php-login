@@ -1,17 +1,49 @@
 <?php
 
 define('GITHUB_OAUTH_URL', 'https://github.com/login/oauth/authorize');
+define('GITHUB_OAUTH_GET_TOKEN_URL', 'https://github.com/login/oauth/access_token');
+define('GITHUB_OAUTH_GET_USER_URL', 'https://api.github.com/user');
 
-
-function http_post($url, $data)
+function http_post($url, $data, $headers)
 {
+    
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    if(!empty($headers)){
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    }
+    
     $response = curl_exec($curl);
     curl_close($curl);
     return $response;
+}
+
+
+/**
+ * Call a URL with parameters to get a standard oauth token
+ * 
+ * @param $client_id the client id
+ * @return array containing the response, false if there's an error
+ */
+function get_oauth_token($url, $client_id, $client_secret, $code, $redirect_uri){
+
+    $data = array('client_id' => $client_id, 'client_secret' => $client_secret, 'code' => $code);
+
+    if(!empty($redirect_uri)){
+        array_push($data, 'redirect_uri'=>$redirect_uri);
+    }
+
+    $response = http_post(GITHUB_OAUTH_GET_TOKEN_URL, $data, array("Accept: application/json"));
+
+    if(response)
+        $response = json_decode($response, true);
+
+    return $response;
+
+
 }
 
 function print_github_button($client_id, $return_uri){
