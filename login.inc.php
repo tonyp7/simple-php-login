@@ -39,7 +39,7 @@ function http_post($url, $data, $headers){
 
 
 function get_user_info($token){
-    $headers = array("Authorization: Bearer ".$token);
+    $headers = array('User-Agent: curl/php', "Authorization: Bearer ".$token);
     
     $response = http_get(GITHUB_OAUTH_GET_USER_URL, '', $headers);
 
