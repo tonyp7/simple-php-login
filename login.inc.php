@@ -16,12 +16,15 @@ function http_post($url, $data)
 
 function print_github_button($client_id, $return_uri){
 
+    $_SESSION['github_state'] = bin2hex(random_bytes(16));
+
     printf('
-<a href="%s?client_id=%s%s&allow_signup=false" id="github-button" class="w-100 btn btn-lg btn-block btn-social btn-github mt-1">
+<a href="%s?client_id=%s%s&allow_signup=false&state=%s" id="github-button" class="w-100 btn btn-lg btn-block btn-social btn-github mt-1">
     <i class="bi bi-github"></i> Sign in with GitHub
 </a>', GITHUB_OAUTH_URL, 
         $client_id,
-        empty($return_uri)?'':sprintf('&return_uri=%s',$return_uri)
+        empty($return_uri)?'':sprintf('&return_uri=%s',$return_uri),
+        $_SESSION['github_state']
     );
 
 
