@@ -27,7 +27,14 @@ else if(isset($_SESSION['github_state']) && isset($_GET['code']) && isset($_GET[
 
     $response = get_oauth_token(GITHUB_OAUTH_GET_TOKEN_URL, $config['github']['client_id'], $config['github']['client_secret'], $_GET['code'], $config['github']['redirect_uri']);
 
-    var_dump($response);
+    if($response && isset($response['access_token'])){
+
+        $token = $response['access_token'];
+        if($token){
+            var_dump( get_user_info($token ));
+        }
+    }
+
 }
 
 
