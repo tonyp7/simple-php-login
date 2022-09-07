@@ -8,7 +8,7 @@ define('GITHUB_OAUTH_GET_USER_URL', 'https://api.github.com/user');
 function http_get($url, $data, $headers){
 
     $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_URL, $url);
+    //curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     
     if(!empty($headers)){
@@ -16,6 +16,7 @@ function http_get($url, $data, $headers){
     }
 
     $response = curl_exec($curl);
+    var_dump($response);
     curl_close($curl);
     return $response;
 }
@@ -38,10 +39,7 @@ function http_post($url, $data, $headers){
 
 
 function get_user_info($token){
-    $headers = array(
-        "Accept: application/json",
-        "Authorization: Bearer ".$token,
-    );
+    $headers = array("Authorization: Bearer ".$token);
     
     $response = http_get(GITHUB_OAUTH_GET_USER_URL, '', $headers);
 
