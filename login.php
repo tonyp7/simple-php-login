@@ -112,7 +112,7 @@ function docReady () {
 	<a id="github-button" class="w-100 btn btn-lg btn-block btn-social btn-github mt-1">
 		<i class="bi bi-github"></i> Sign in with GitHub
 	</a>
-<?php } >
+<?php } ?>
 	<a id="google-button" class="w-100 btn btn-lg btn-block btn-social btn-google mt-1">
 		<img class="bi" src="assets/g-normal.svg" alt=""> Sign in with Google
 	</a>
