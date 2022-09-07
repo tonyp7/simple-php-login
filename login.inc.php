@@ -1,6 +1,6 @@
 <?php
 
-define('GITHUB_OAUTH_URL', 'https://github.com/login/oauth/authorize')
+define('GITHUB_OAUTH_URL', 'https://github.com/login/oauth/authorize');
 
 function print_github_button($client_id, $return_uri){
 
