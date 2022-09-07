@@ -3,6 +3,7 @@
 /**
  * This host the configuration file for php-simple-login; most notably authorized users
  */
+$config['title'] = 'simple-php-login';
 
 $login['native'] = array( array( 'user'=>'user1', 'password'=>'password1'), array( 'user'=>'user2', 'password'=>'password2') );
 
