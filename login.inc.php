@@ -33,7 +33,7 @@ function get_oauth_token($url, $client_id, $client_secret, $code, $redirect_uri)
     $data = array('client_id' => $client_id, 'client_secret' => $client_secret, 'code' => $code);
 
     if(!empty($redirect_uri)){
-        array_push($data, 'redirect_uri'=>$redirect_uri);
+        $data['redirect_uri'] = $redirect_uri;
     }
 
     $response = http_post(GITHUB_OAUTH_GET_TOKEN_URL, $data, array("Accept: application/json"));
