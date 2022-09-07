@@ -38,7 +38,7 @@ function get_oauth_token($url, $client_id, $client_secret, $code, $redirect_uri)
 
     $response = http_post(GITHUB_OAUTH_GET_TOKEN_URL, $data, array("Accept: application/json"));
 
-    if(response)
+    if($response)
         $response = json_decode($response, true);
 
     return $response;

@@ -25,8 +25,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 else if(isset($_SESSION['github_state']) && isset($_GET['code']) && isset($_GET['state']) && $_SESSION['github_state'] == $_GET['state']){
     //process Github login
 
-    echo 'getting token';
-
     $response = get_oauth_token(GITHUB_OAUTH_GET_TOKEN_URL, $config['github']['client_id'], $config['github']['client_secret'], $_GET['code'], $config['github']['redirect_uri']);
 
     var_dump($response);
