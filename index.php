@@ -4,6 +4,9 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require_once('config.inc.php');
 
+var_dump($_REQUEST);
+var_dump($_SERVER);
+
 //process logins
 if(isset($_POST['username']) && isset($_POST['password'])){
 
