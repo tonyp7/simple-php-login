@@ -16,7 +16,6 @@ function http_get($url, $data, $headers){
     }
 
     $response = curl_exec($curl);
-    var_dump($response);
     curl_close($curl);
     return $response;
 }

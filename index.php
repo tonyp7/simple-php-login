@@ -36,7 +36,9 @@ else if(isset($_SESSION['github_state']) && isset($_GET['code']) && isset($_GET[
         if($token){
             $user =  get_user_info($token );
 
-            var_dump($user);
+            if(isset($user['login']) && in_array($user['login'], $config['github']['users'], true)){
+                //yasss
+            }
         }
     }
 
