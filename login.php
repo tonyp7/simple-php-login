@@ -104,10 +104,11 @@ function docReady () {
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 	
-    <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-          </div>
-          
+	<div class="row mt-2">
+		<div class="col"><hr></div>
+		<div class="col-auto"><em>or</em></div>
+		<div class="col"><hr></div>
+	</div>
 <?php if ($config['github']['active'] == true) { print_github_button($config['github']['client_id'], $config['github']['redirect_uri']); } ?>
 
 <?php if ($config['google']['active'] == true) { ?>
