@@ -12,7 +12,34 @@ A logged-in user can access a protected resource.
 
 ## How to use it?
 
-simple-php-login is configured through the file config.inc.php.
+simple-php-login is configured through the file config.inc.php. **You must edit sample.config.inc.php and rename it as config.inc.php**
+
+### Using usernmae & password logins
+
+This is the simplest way to get simple-php-login up and running quickly. The 'native' entry in the config variable holds an wway of user/passwords combinations.
+
+```php
+$config['native'] = array( array( 'user'=>'user1', 'password'=>'password1'), array( 'user'=>'user2', 'password'=>'password2') );
+```
+
+#### Hardening security
+
+By default these passwords are not hashed and you'd be vulnerable to leak passwords should the php interpreter fail. While it is fine to get simple-php-login quickly, you you should harden security by storing hashed passwords instead of plain passwords.
+
+To do so, apply these following settings:
+
+```php
+$config['native']['hash_password'] = true;
+$config['native']['algorithm'] = PASSWORD_BCRYPT;
+```
+
+simple-php-login then rely in the passwod_hash function from PHP. https://www.php.net/manual/en/function.password-hash.php
+
+
+### Configuring Github signin
+
+
+### Configuring Google signin
 
 
 ## Why simple-php-login
