@@ -35,6 +35,17 @@ $config['native']['algorithm'] = PASSWORD_BCRYPT;
 
 simple-php-login then rely in the passwod_hash function from PHP. https://www.php.net/manual/en/function.password-hash.php
 
+The passwords should now store the hashed passwords instead of the plain password. simple-php-login provides a utility to generate the hashed paswords according to the configuration.
+
+You can use from the command line:
+
+```console
+$php generate_hash.php password
+```
+
+Or simple browse generate_hash.php to your php-simple-login browser:
+
+
 
 ### Configuring Github signin
 
